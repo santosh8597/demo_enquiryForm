@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudenquiryDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="StudentDetail">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="emailId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="enquiryType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="StudenquiryDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="StudentDetails" EntityType="Self.StudentDetail" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentLayout</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Scripts/Students/index.js"></script>
+    
+</head>
+<body>
+   <div class="col-md-3">
+
+<ul class="list-group" style="border-right:2px solid black;height:600px">
+
+    <li class="list-group-item"><h3><a href="/Students/Create">Create</a></h3></li>
+    <li class="list-group-item"><h3><a href="/Students/Delete">Delete</a></h3></li>
+
+</ul>
+   </div>
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+</body>
+
+</html>

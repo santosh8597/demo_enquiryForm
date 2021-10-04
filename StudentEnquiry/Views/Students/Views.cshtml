@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Views";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+<h2>Views</h2>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+<script src="~/Scripts/Students/index.js"></script>
+<script>
+    $(document).ready(function () {
+       
+       // $("#btnUpdate").show();
+      //  $("#btnSubmit").hide();
+
+        $.ajax({
+            url: '/Students/ViewStudent/@ViewBag.id',
+            method: 'get',
+            contentType: 'application/json',
+            success: function (resp) {
+                console.log(resp);
+                $("#txtStudentId").val(resp.studentId);
+                $("#txtName").val(resp.name);
+                $("#txtEamil").val(resp.emailId);
+                $("#txtPhoneNo").val(resp.phoneNo);
+                $("#ddEnquiry").val(resp.enquiryType);
+                $("#txtDetails").val(resp.details);
+                $("#btnSubmit").prop("disabled", false);
+
+            }
+        })
+        
+    })
+</script>
+<div class="container">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h2 style="text-align:center">Enquiry Form</h2>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-4">studentId</label>
+                        <input type="text" class="form-control col-md-8" id="txtStudentId" disabled />
+                    </div>
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-4">Name</label>
+                        <input type="text" class="form-control col-md-8" id="txtName" />
+                    </div>
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-4">Email</label>
+                        <input type="text" class="form-control col-md-8" id="txtEamil" />
+                    </div>
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-4">Phone Number</label>
+                        <input type="text" class="form-control col-md-8" id="txtPhoneNo" />
+                    </div>
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-4">Type Of Enquiry</label>
+                        <select class="form-control col-md-8" id="ddEnquiry">
+                            <option selected disabled>Subjects</option>
+                            <option>C</option>
+                            <option>C++</option>
+                            <option>Java</option>
+                            <option>.net</option>
+                            <option>C#</option>
+                            <option>Angular</option>
+                        </select>
+                    </div>
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-4">Details</label>
+                        <textarea class="form-control" id="txtDetails"></textarea>
+                    </div>
+                </div>
+                <div class="panel-footer" style="text-align:right">
+                    <input type="button" value="Submit" class="btn btn-primary" onclick="fetchStudentData()" id="btnSubmit" />
+                    <input type="button" value="Update" class="btn btn-success" onclick="updateStudet()" id="btnUpdate" />
+
+                    <input type="button" value="Cancel" class="btn btn-danger" id="btnCancel" onclick="clearData()" />
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+

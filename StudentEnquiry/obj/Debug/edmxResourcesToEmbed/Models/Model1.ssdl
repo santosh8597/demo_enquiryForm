@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudenquiryDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="StudentDetails">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="emailId" Type="varchar" MaxLength="100" />
+    <Property Name="phoneNo" Type="varchar" MaxLength="20" />
+    <Property Name="enquiryType" Type="varchar" MaxLength="100" />
+    <Property Name="details" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="StudenquiryDbModelStoreContainer">
+    <EntitySet Name="StudentDetails" EntityType="Self.StudentDetails" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
